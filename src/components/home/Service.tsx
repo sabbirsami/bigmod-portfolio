@@ -34,7 +34,7 @@ const services = [
 const Service: React.FC = () => {
   return (
     <section className="bg-secondary_dark min-h-96">
-      <div className="container mx-auto py-24">
+      <div className="container mx-auto pt-24 pb-32">
         <div className="text-center">
           <h2 className="capitalize text-5xl md:w-6/12 mx-auto font-semibold leading-[3.8rem]">
             Delivering Exceptional Work for Client Satisfaction
