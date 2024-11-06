@@ -31,7 +31,7 @@ const Partner: React.FC = () => {
   }
 
   return (
-    <section className="container mx-auto py-24 border-b">
+    <section className="container mx-auto py-24 ">
       <div>
         {/* <h2 className="capitalize text-5xl text-center font-semibold leading-[3.8rem] mb-10">
           Our Partners
