@@ -17,10 +17,10 @@ const Navbar = () => {
 
   return (
     <header className="">
-      <div className="container mx-auto py-3 px-4 lg:px-0">
+      <div className="container mx-auto py-4 px-4 lg:px-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Logo width={125} className="h-16" />
+            <Logo width={145} className="h-16" />
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -59,7 +59,7 @@ const Navbar = () => {
           <div
             className={`${
               isOpen ? "block" : "hidden"
-            } lg:flex lg:items-center lg:gap-10 lg:static absolute top-16 left-0 w-full lg:w-auto bg-white lg:bg-transparent lg:p-0 p-4`}
+            } lg:flex lg:items-center lg:gap-10 lg:static absolute top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent lg:p-0 px-14 py-6 z-30`}
           >
             <nav className="flex flex-col lg:flex-row gap-4 lg:gap-0.5">
               {navItems.map((item, idx) => (
