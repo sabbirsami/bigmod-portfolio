@@ -15,6 +15,7 @@ const config: Config = {
         primary_two: "#64FFE7",
         secondary_one: "#6F3AFA",
         secondary_two: "#B473F3",
+        secondary_dark: "#171717",
       },
     },
   },
