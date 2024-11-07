@@ -11,7 +11,6 @@ import Link from "next/link";
 import counterBg from "@/assets/bg/counter-bg.png";
 
 const About: React.FC = () => {
-  // Define state types
   const [projectsCompleted, setProjectsCompleted] = useState<number>(0);
   const [satisfiedClients, setSatisfiedClients] = useState<number>(0);
   const [expertTeams, setExpertTeams] = useState<number>(0);
@@ -45,7 +44,6 @@ const About: React.FC = () => {
     };
   }, [hasAnimated]);
 
-  // Counter animation function
   const animateCounters = () => {
     animateCount(5, setProjectsCompleted);
     animateCount(3, setSatisfiedClients);
@@ -71,36 +69,51 @@ const About: React.FC = () => {
   };
 
   return (
-    <section className="py-24 px-5">
+    <section className="py-16 px-4 md:px-8 lg:px-5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Text Section */}
           <div>
-            <h3 className=" uppercase mb-2">About Us</h3>
+            <h3 className="text-xl md:text-2xl uppercase mb-2">About Us</h3>
             <div className="w-10 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
-            <h2 className="text-5xl font-bold mb-10">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10">
               Direction With Our Company.
             </h2>
-            <p className="text-gray-300 mb-6">
-              BigMod Technologies is a dynamic and innovative company...
+            <p className="text-gray-300 text-sm md:text-base lg:text-lg mb-6">
+              BigMod Technologies is a dynamic and innovative company
+              specializing in providing cutting-edge software and intelligent
+              digital branding solutions. With a focus on creativity,
+              technology, and client satisfaction, we strive to empower
+              businesses of all sizes to thrive in the digital era. Our
+              comprehensive suite of services encompasses software development,
+              digital marketing, web design, and strategic consultancy, tailored
+              to meet the diverse needs of our clients.
             </p>
-            <div className="flex items-center gap-6 my-10">
-              <div className="border border-secondary_one/35 rounded-full p-6">
-                <Image className="w-32" src={mission} alt="Team Image"></Image>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 my-8">
+              <div className="border border-secondary_one/35 rounded-full p-4 md:p-6">
+                <Image
+                  className="w-16 md:w-24"
+                  src={mission}
+                  alt="Team Image"
+                />
               </div>
               <div>
-                <h4 className="text-xl font-semibold mb-1">Our Mission</h4>
+                <h4 className="text-lg md:text-xl font-semibold mb-1">
+                  Our Mission
+                </h4>
                 <div className="w-20 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
-                <p className="text-gray-300">
-                  We are committed to delivering innovative solutions...
+                <p className="text-gray-300 text-sm md:text-base">
+                  We are committed to delivering innovative solutions,
+                  exceptional customer service, and measurable results that
+                  exceed our clients&#39; expectations.
                 </p>
               </div>
             </div>
             <Link
               href="/about"
-              className="bg-gradient-to-tr from-secondary_one to-secondary_two text-white px-8 py-3 rounded-full inline-block mt-4"
+              className="bg-gradient-to-tr from-secondary_one to-secondary_two text-white px-6 md:px-8 py-2 md:py-3 rounded-full inline-block mt-4"
             >
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center gap-2 md:gap-4">
                 <span>About More</span> <Arrow width={13} height={13} />
               </div>
             </Link>
@@ -115,26 +128,30 @@ const About: React.FC = () => {
               height={300}
               className="rounded-lg shadow-lg w-full"
             />
-            <div className="absolute bottom-0 -left-48 bg-white py-4 px-8 shadow-lg rounded-lg flex space-x-8 transform translate-x-1/2 translate-y-1/2">
-              <div className="text-center flex items-center justify-between gap-4">
+            <div className="absolute bottom-0 -left-24 md:-left-32 bg-white py-4 px-6 md:px-8 shadow-lg rounded-lg flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 transform translate-x-1/2 translate-y-1/2">
+              <div className="text-center flex items-center gap-4">
                 <Image
-                  className="w-16"
+                  className="w-10 md:w-16"
                   src={progress90image}
                   alt="Progress 90%"
                   height={300}
                   width={300}
                 />
-                <p className="text-sm text-gray-600">Web Clean Design</p>
+                <p className="text-xs md:text-sm text-gray-600">
+                  Web Clean Design
+                </p>
               </div>
-              <div className="text-center flex items-center justify-between gap-4">
+              <div className="text-center flex items-center gap-4">
                 <Image
-                  className="w-16"
+                  className="w-10 md:w-16"
                   src={progress85image}
                   alt="Progress 85%"
                   height={300}
                   width={300}
                 />
-                <p className="text-sm text-gray-600">App Developing</p>
+                <p className="text-xs md:text-sm text-gray-600">
+                  App Developing
+                </p>
               </div>
             </div>
           </div>
@@ -143,7 +160,7 @@ const About: React.FC = () => {
         {/* Statistics Section */}
         <div
           ref={sectionRef}
-          className="mt-16 bg-[#160044] text-white rounded-lg py-16 px-5 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative features-count"
+          className="mt-12 md:mt-16 bg-[#160044] text-white rounded-lg py-10 md:py-16 px-4 md:px-5 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 text-center relative features-count"
           style={{
             background: `url(${counterBg.src})`,
             backgroundRepeat: "no-repeat",
@@ -152,28 +169,28 @@ const About: React.FC = () => {
           }}
         >
           <div>
-            <p className="text-5xl font-bold text-primary_two">
+            <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {projectsCompleted}+
             </p>
-            <p>Projects Completed</p>
+            <p className="text-sm md:text-base">Projects Completed</p>
           </div>
           <div>
-            <p className="text-5xl font-bold text-primary_two">
+            <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {satisfiedClients}+
             </p>
-            <p>Satisfied Clients</p>
+            <p className="text-sm md:text-base">Satisfied Clients</p>
           </div>
           <div>
-            <p className="text-5xl font-bold text-primary_two">
+            <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {expertTeams}+
             </p>
-            <p>Expert Teams</p>
+            <p className="text-sm md:text-base">Expert Teams</p>
           </div>
           <div>
-            <p className="text-5xl font-bold text-primary_two">
+            <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {peopleUsing}+
             </p>
-            <p>People Are Using</p>
+            <p className="text-sm md:text-base">People Are Using</p>
           </div>
         </div>
       </div>
