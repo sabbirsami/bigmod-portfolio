@@ -1,6 +1,24 @@
+"use client";
+
 import Arrow from "../shared/icons/Arrow";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const Hero: React.FC = () => {
+  const headingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lines = headingRef.current?.querySelectorAll(".line");
+
+    if (lines) {
+      gsap.from(lines, {
+        duration: 1.5,
+        yPercent: 100,
+        ease: "power4.out",
+        stagger: 0.1,
+      });
+    }
+  }, []);
   return (
     <section
       className="container mx-auto  h-[90vh] flex items-center px-4 md:px-8"
@@ -15,9 +33,13 @@ const Hero: React.FC = () => {
             <span>How We Operate</span> <Arrow width={14} height={14} />
           </button>
         </div>
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-semibold pt-6 leading-tight md:leading-none">
+        <h1
+          ref={headingRef}
+          className="text-5xl md:text-7xl lg:text-9xl font-semibold pt-6 leading-tight md:leading-none"
+        >
           To Accelerate Your Digital Business.
         </h1>
+
         <p className="pt-8 text-sm lg:text-base md:w-10/12 lg:w-8/12 mx-auto md:mx-0">
           Boost your digital business with our tailored solutions designed to
           maximize efficiency and propel growth. Harness cutting-edge technology
