@@ -172,25 +172,25 @@ const About: React.FC = () => {
             <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {projectsCompleted}+
             </p>
-            <p className="text-sm md:text-base">Projects Completed</p>
+            <p className="text-sm md:text-base pt-3">Projects Completed</p>
           </div>
           <div>
             <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {satisfiedClients}+
             </p>
-            <p className="text-sm md:text-base">Satisfied Clients</p>
+            <p className="text-sm md:text-base pt-3">Satisfied Clients</p>
           </div>
           <div>
             <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {expertTeams}+
             </p>
-            <p className="text-sm md:text-base">Expert Teams</p>
+            <p className="text-sm md:text-base pt-3">Expert Teams</p>
           </div>
           <div>
             <p className="text-3xl md:text-5xl font-bold text-primary_two">
               {peopleUsing}+
             </p>
-            <p className="text-sm md:text-base">People Are Using</p>
+            <p className="text-sm md:text-base pt-3">People Are Using</p>
           </div>
         </div>
       </div>
