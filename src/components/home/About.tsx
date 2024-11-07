@@ -69,12 +69,12 @@ const About: React.FC = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-5">
+    <section className="py-28 px-4 md:px-8 lg:px-5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Text Section */}
           <div>
-            <h3 className="text-xl md:text-2xl uppercase mb-2">About Us</h3>
+            <h3 className="text-xl md:text-xl uppercase mb-2">About Us</h3>
             <div className="w-10 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10">
               Direction With Our Company.

@@ -21,7 +21,7 @@ const partnerLogos = [
 const Partner: React.FC = () => {
   // Split the logos into rows with decreasing counts per row
   const rows = [];
-  let imagesPerRow = 7;
+  let imagesPerRow = 3;
   let startIndex = 0;
 
   while (startIndex < partnerLogos.length) {
@@ -31,29 +31,22 @@ const Partner: React.FC = () => {
   }
 
   return (
-    <section className="container mx-auto py-24 ">
-      <div>
-        {/* <h2 className="capitalize text-5xl text-center font-semibold leading-[3.8rem] mb-10">
-          Our Partners
-        </h2> */}
-        <div className="space-y-6">
-          {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex justify-center gap-16">
-              {row.map((logo, index) => (
-                <Image
-                  key={index}
-                  src={logo}
-                  alt={`Partner logo ${index + 1}`}
-                  className="w-24 h-auto"
-                  height={500}
-                  width={500}
-                />
-              ))}
-            </div>
+    <div className="space-y-6">
+      {rows.map((row, rowIndex) => (
+        <div key={rowIndex} className="flex justify-center gap-16">
+          {row.map((logo, index) => (
+            <Image
+              key={index}
+              src={logo}
+              alt={`Partner logo ${index + 1}`}
+              className="w-24 h-auto"
+              height={500}
+              width={500}
+            />
           ))}
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 };
 
