@@ -4,6 +4,7 @@ import Link from "next/link";
 import FacebookIcon from "../icons/Facebook";
 import TwitterIcon from "../icons/TwitterIcon";
 import PinterestIcon from "../icons/PinterestIcon";
+import footerBg from "@/assets/bg/footer-bg.png";
 
 const Footer = () => {
   const socialLinks = [
@@ -51,13 +52,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary_dark text-gray-200 pt-24 pb-16 px-5">
+    <footer
+      className="bg-secondary_dark text-gray-200 pt-24 pb-16 px-5"
+      style={{ background: `url(${footerBg.src})` }}
+    >
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {/* Office Section */}
         <div>
           <Logo width={165} className="h-16" />
           <h2 className="text-xl font-semibold mt-4">Office</h2>
-          <div className="w-10 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two mb-5"></div>
+          <div className="w-10 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
           <p className="text-sm">
             Holding # 457, DIT Road, 3rd Floor, West Rampura, Dhaka-1219.
           </p>
@@ -80,7 +84,7 @@ const Footer = () => {
         {/* Our Services Section */}
         <div>
           <h2 className="text-xl font-semibold">Our Services</h2>
-          <div className="w-16 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two mb-5"></div>
+          <div className="w-16 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
           <ul className="space-y-2 text-sm">
             {services.map((service) => (
               <li key={service.id}>
@@ -95,7 +99,7 @@ const Footer = () => {
         {/* Company Section */}
         <div>
           <h2 className="text-xl font-semibold">Company</h2>
-          <div className="w-16 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two mb-5"></div>
+          <div className="w-16 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
           <ul className="space-y-2 text-sm">
             {navigationLinks.map((link) => (
               <li key={link.id}>
@@ -110,7 +114,7 @@ const Footer = () => {
         {/* Contacts Section */}
         <div>
           <h2 className="text-xl font-semibold">Contacts</h2>
-          <div className="w-16 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two mb-5"></div>
+          <div className="w-16 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
           <ul className="space-y-2">
             <li className="flex items-center text-sm">+880 255 128 071</li>
             <li className="flex items-center text-sm">+880 151 562 0108</li>

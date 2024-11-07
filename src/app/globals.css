@@ -99,3 +99,18 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+/* / */
+
+.features-count:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #160044;
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 0.9;
+}

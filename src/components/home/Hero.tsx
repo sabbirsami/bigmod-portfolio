@@ -2,7 +2,10 @@ import Arrow from "../shared/icons/Arrow";
 
 const Hero: React.FC = () => {
   return (
-    <section className="container mx-auto  h-[90vh] flex items-center px-4 md:px-8">
+    <section
+      className="container mx-auto  h-[90vh] flex items-center px-4 md:px-8"
+      // style={{ background: `url(${heroBg.src})` }}
+    >
       <div className="text-center md:text-left">
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
           <button className="flex items-center gap-2 md:gap-3 rounded-full py-2.5 px-4 md:px-6 border">

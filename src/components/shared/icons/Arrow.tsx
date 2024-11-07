@@ -21,7 +21,7 @@ const Arrow: React.FC<ArrowIconType> = ({
     >
       <path
         fillRule="evenodd"
-        clip-rule="evenodd"
+        clipRule="evenodd"
         d="M0.0805664 499L54 560L485 133.965V560H565V0H1.28052L0.0805664 80H430.36L0.0805664 499Z"
         fill="currentColor"
       />
