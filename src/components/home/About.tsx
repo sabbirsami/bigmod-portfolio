@@ -97,6 +97,7 @@ const About: React.FC = () => {
                   alt="Team Image"
                 />
               </div>
+
               <div>
                 <h4 className="text-lg md:text-xl font-semibold mb-1">
                   Our Mission

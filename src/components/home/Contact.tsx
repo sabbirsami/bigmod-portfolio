@@ -30,7 +30,6 @@ const Contact = () => {
                   style={{
                     WebkitTextStroke: "2px #B473F3",
                     WebkitTextFillColor: "transparent",
-                    textStroke: "2px #B473F3",
                     color: "transparent",
                   }}
                 >
