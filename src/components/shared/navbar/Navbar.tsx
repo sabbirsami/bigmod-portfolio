@@ -7,7 +7,7 @@ import Logo from "../icons/Logo";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
-    { title: "Home", route: "/home" },
+    { title: "Home", route: "/" },
     { title: "About us", route: "/about-us" },
     { title: "Services", route: "/services" },
     { title: "Projects", route: "/projects" },
