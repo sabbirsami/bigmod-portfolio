@@ -59,20 +59,20 @@ const Navbar = () => {
           <div
             className={`${
               isOpen ? "block" : "hidden"
-            } lg:flex lg:items-center lg:gap-10 lg:static absolute top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent lg:p-0 px-14 py-6 z-30`}
+            } lg:flex lg:items-center lg:gap-4 lg:static absolute top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent lg:p-0 px-14 py-6 z-30`}
           >
-            <nav className="flex flex-col lg:flex-row gap-4 lg:gap-0.5">
+            <nav className="flex flex-col lg:flex-row gap-2 lg:gap-0.5">
               {navItems.map((item, idx) => (
                 <Link
                   key={idx}
                   href={item.route}
-                  className="capitalize px-4 py-2 lg:py-0 hover:text-primary_two"
+                  className="capitalize px-4 py-2 lg:py-0 hover:text-primary_two text-sm"
                 >
                   {item.title}
                 </Link>
               ))}
             </nav>
-            <button className="mt-4 lg:mt-0 lg:ml-4 rounded-full py-2.5 px-6 bg-gradient-to-tr from-secondary_one to-secondary_two text-white">
+            <button className="mt-4 lg:mt-0 lg:ml-4 rounded-full py-2.5 px-6 bg-gradient-to-tr from-secondary_one to-secondary_two text-white text-sm">
               Book Appointment
             </button>
           </div>

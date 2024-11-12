@@ -1,204 +1,160 @@
-"use client";
-
-import Title from "@/components/shared/title/Title";
-import React, { useEffect, useRef, useState } from "react";
-import teamImage from "@/assets/bg/abouut-bg.jpg";
-import mission from "@/assets/mission.svg";
-import progress90image from "@/assets/progress90.png";
-import progress85image from "@/assets/progress85.png";
-import counterBg from "@/assets/bg/counter-bg.png";
+import logoPart01 from "@/assets/logo/logoPart01.svg";
+import logoPart02 from "@/assets/logo/logoPart02.svg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Image from "next/image";
-import Link from "next/link";
-import Arrow from "@/components/shared/icons/Arrow";
 
 const AboutUs = () => {
-  const [projectsCompleted, setProjectsCompleted] = useState<number>(0);
-  const [satisfiedClients, setSatisfiedClients] = useState<number>(0);
-  const [expertTeams, setExpertTeams] = useState<number>(0);
-  const [peopleUsing, setPeopleUsing] = useState<number>(0);
-
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [hasAnimated, setHasAnimated] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleScroll = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          animateCounters();
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleScroll, {
-      threshold: 0.5,
-    });
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [hasAnimated]);
-
-  const animateCounters = () => {
-    animateCount(5, setProjectsCompleted);
-    animateCount(3, setSatisfiedClients);
-    animateCount(10, setExpertTeams);
-    animateCount(28, setPeopleUsing);
-  };
-
-  const animateCount = (
-    target: number,
-    setState: React.Dispatch<React.SetStateAction<number>>
-  ) => {
-    let count = 0;
-    const increment = Math.ceil(target / 50);
-    const interval = setInterval(() => {
-      count += increment;
-      if (count >= target) {
-        setState(target);
-        clearInterval(interval);
-      } else {
-        setState(count);
-      }
-    }, 50);
-  };
+  const faqData = [
+    {
+      question: "What types of businesses do you work with?",
+      answer:
+        "At BigMod Technologies, we work with businesses of all sizes—from startups to large enterprises—across a variety of industries. Our services are adaptable to meet the unique challenges and goals of each client, ensuring that our solutions fit their specific needs.",
+    },
+    {
+      question: "How does your process work for new projects?",
+      answer:
+        "Our process begins with a discovery phase, where we get to know your business goals, target audience, and project requirements. We then move through strategy development, design, development, and testing. We collaborate closely with you throughout, ensuring the project aligns with your vision every step of the way.",
+    },
+    {
+      question: "What technologies do you specialize in?",
+      answer:
+        "We specialize in a wide range of technologies, including JavaScript frameworks (React, Angular, Vue), mobile development platforms (iOS, Android, Flutter), cloud solutions (AWS, Google Cloud, Azure), and DevOps tools (Docker, Kubernetes, Jenkins). Our team stays updated with the latest tools and trends to offer innovative solutions.",
+    },
+    {
+      question: "Can you help us with branding and digital marketing?",
+      answer:
+        "Absolutely! Beyond software and app development, we provide digital branding services that include logo design, brand identity creation, graphic design, and strategic digital marketing. Our goal is to create a cohesive brand experience that resonates with your target audience.",
+    },
+    {
+      question: "How long does a typical project take?",
+      answer:
+        "Project timelines vary based on the complexity and scope of the work. For example, a web or mobile app might take anywhere from a few weeks to several months. After an initial consultation, we’ll provide a tailored timeline to meet your project’s specific needs.",
+    },
+    {
+      question: "Do you offer post-launch support and maintenance?",
+      answer:
+        "Yes, we offer post-launch support and maintenance packages to ensure your digital products continue to perform optimally. We can help with updates, troubleshooting, and adding new features as your business grows.",
+    },
+    // {
+    //   question:
+    //     "What sets BigMod Technologies apart from other digital agencies?",
+    //   answer:
+    //     "BigMod Technologies is driven by innovation, client satisfaction, and measurable results. We don’t just deliver a service; we build long-term partnerships, investing in your success. Our holistic approach—covering development, design, and digital branding—ensures that you get a cohesive strategy that supports your goals.",
+    // },
+    // {
+    //   question: "How can we get started with BigMod Technologies?",
+    //   answer:
+    //     "Getting started is easy! Just reach out to us via our contact form or email. We’ll schedule an initial consultation to discuss your needs, answer any questions, and outline how we can help bring your vision to life.",
+    // },
+  ];
+  const services = [
+    {
+      title: "Web App Development",
+      description:
+        "BigMod Technologies creates custom web applications tailored to each client’s unique needs. Our web apps are designed to enhance productivity, engagement, and functionality—positioning your business to succeed in the digital marketplace.",
+    },
+    {
+      title: "Mobile App Development",
+      description:
+        "From concept to launch, our mobile app development services are crafted to connect your brand with users on the go. Whether iOS or Android, we build applications that are as engaging as they are functional, driving your business’s digital reach.",
+    },
+    {
+      title: "Cloud and DevOps Services",
+      description:
+        "Streamline your operations with our Cloud and DevOps solutions. BigMod Technologies helps clients optimize their infrastructure, embrace scalability, and maintain agile workflows to support continuous growth and innovation.",
+    },
+    {
+      title: "Graphic Design",
+      description:
+        "Our creative graphic design team transforms ideas into impactful visual experiences. From brand identity to marketing materials, we deliver designs that capture attention and resonate with your audience.",
+    },
+  ];
 
   return (
     <section className="">
-      <Title title="About Us" url="/about-us" />
-      <section className="py-28 px-4 md:px-8 lg:px-5">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Text Section */}
-            <div>
-              <h3 className="text-xl md:text-xl uppercase mb-2">About Us</h3>
-              <div className="w-10 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10">
-                Direction With Our Company.
-              </h2>
-              <p className="text-gray-300 text-sm md:text-base lg:text-lg mb-6">
-                BigMod Technologies is a dynamic and innovative company
-                specializing in providing cutting-edge software and intelligent
-                digital branding solutions. With a focus on creativity,
-                technology, and client satisfaction, we strive to empower
-                businesses of all sizes to thrive in the digital era. Our
-                comprehensive suite of services encompasses software
-                development, digital marketing, web design, and strategic
-                consultancy, tailored to meet the diverse needs of our clients.
-              </p>
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6 my-8">
-                <div className="border border-secondary_one/35 rounded-full p-4 md:p-6">
-                  <Image
-                    className="w-16 md:w-24"
-                    src={mission}
-                    alt="Team Image"
-                  />
-                </div>
-
-                <div>
-                  <h4 className="text-lg md:text-xl font-semibold mb-1">
-                    Our Mission
-                  </h4>
-                  <div className="w-20 h-[2px] bg-gradient-to-tr from-secondary_one to-primary_two rounded-full mb-5"></div>
-                  <p className="text-gray-300 text-sm md:text-base">
-                    We are committed to delivering innovative solutions,
-                    exceptional customer service, and measurable results that
-                    exceed our clients&#39; expectations.
-                  </p>
-                </div>
-              </div>
-              <Link
-                href="/about"
-                className="bg-gradient-to-tr from-secondary_one to-secondary_two text-white px-6 md:px-8 py-2 md:py-3 rounded-full inline-block mt-4"
-              >
-                <div className="flex items-center justify-center gap-2 md:gap-4">
-                  <span>About More</span> <Arrow width={13} height={13} />
-                </div>
-              </Link>
-            </div>
-
-            {/* Image Section */}
-            <div className="relative">
-              <Image
-                src={teamImage}
-                alt="Team Photo"
-                width={500}
-                height={300}
-                className="rounded-lg shadow-lg w-full"
-              />
-              <div className="absolute bottom-0 -left-24 md:-left-32 bg-white py-4 px-6 md:px-8 shadow-lg rounded-lg flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 transform translate-x-1/2 translate-y-1/2">
-                <div className="text-center flex items-center gap-4">
-                  <Image
-                    className="w-10 md:w-16"
-                    src={progress90image}
-                    alt="Progress 90%"
-                    height={300}
-                    width={300}
-                  />
-                  <p className="text-xs md:text-sm text-gray-600">
-                    Web Clean Design
-                  </p>
-                </div>
-                <div className="text-center flex items-center gap-4">
-                  <Image
-                    className="w-10 md:w-16"
-                    src={progress85image}
-                    alt="Progress 85%"
-                    height={300}
-                    width={300}
-                  />
-                  <p className="text-xs md:text-sm text-gray-600">
-                    App Developing
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Statistics Section */}
-          <div
-            ref={sectionRef}
-            className="mt-12 md:mt-16 bg-[#160044] text-white rounded-lg py-10 md:py-16 px-4 md:px-5 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 text-center relative features-count"
-            style={{
-              background: `url(${counterBg.src})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              position: "relative",
-            }}
-          >
-            <div>
-              <p className="text-3xl md:text-5xl font-bold text-primary_two">
-                {projectsCompleted}+
-              </p>
-              <p className="text-sm md:text-base pt-3">Projects Completed</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-5xl font-bold text-primary_two">
-                {satisfiedClients}+
-              </p>
-              <p className="text-sm md:text-base pt-3">Satisfied Clients</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-5xl font-bold text-primary_two">
-                {expertTeams}+
-              </p>
-              <p className="text-sm md:text-base pt-3">Expert Teams</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-5xl font-bold text-primary_two">
-                {peopleUsing}+
-              </p>
-              <p className="text-sm md:text-base pt-3">People Are Using</p>
-            </div>
+      <div className="text-center pt-32 pb-20">
+        <h4 className="mb-6 uppercase text-sm tracking-[0.3rem] font-medium text-secondary_two">
+          About Us
+        </h4>
+        <div className="md:w-5/12 mx-auto relative">
+          <h2 className="text-5xl  font-semibold ">
+            Meet the Team Dedicated to Bringing Your Vision to Life
+          </h2>
+          <Image
+            src={logoPart01}
+            alt="logo"
+            className="absolute top-16 -left-8 w-20 rotate-90"
+          />
+          <Image
+            src={logoPart02}
+            alt="logo"
+            className="absolute bottom-16 -right-10 w-20 rotate-90 transform -scale-y-100 -scale-x-100 "
+          />
+        </div>
+      </div>
+      <div className="py-6 container mx-auto text-center">
+        <h3 className="font-semibold text-xl pb-4 tracking-wide">
+          Empowering Digital Success with Innovation and Excellence
+        </h3>
+        <p className="w-8/12 mx-auto text-sm">
+          At BigMod Technologies, we specialize in delivering cutting-edge
+          software and intelligent digital branding solutions designed to help
+          businesses thrive in the digital era. With a commitment to creativity,
+          technology, and client satisfaction, we empower companies of all sizes
+          to transform their visions into impactful realities.
+        </p>
+        <div className="w-6/12 text-start mx-auto px-10 pt-10 pb-16">
+          <ol className="list-decimal pl-5 space-y-4 ">
+            {services.map((service, index) => (
+              <li key={index}>
+                <h2 className="text-lg font-semibold">{service.title}</h2>
+                <p className="text-white/60 text-sm">{service.description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div className="w-6/12 mx-auto px-10 pb-6 pt-10 text-start ">
+          <div className="border border-white/15 rounded-lg">
+            <Accordion type="single" collapsible>
+              {faqData.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className={`${
+                    faqData.length !== index + 1 && "border-b border-white/15"
+                  }`}
+                >
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs">0{index + 1}.</span>
+                      <p className="">{faq.question}</p>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>{` ${faq.answer}`}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
-      </section>
+        <div className="">
+          <div className="mt-12 mx-auto px-8 text-neutral-100 !max-w-[520px] text-start pb-16">
+            <p className="opacity-60">
+              Work at a fast-growing startup in a team of super-talented
+              colleagues (Y Combinator alumni, ex-Google &amp; ex-Shopify
+              engineers, and… you?).
+            </p>
+
+            <p className="text-secondary_two font-semibold pt-6">
+              Work hard, treat people well, and have fun.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
