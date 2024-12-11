@@ -19,9 +19,9 @@ const Title = ({ title, url }: TitleType) => {
         height: "100%",
       }}
     >
-      <div className=" container mx-auto py-32">
+      <div className=" max-w-7xl mx-auto py-32">
         <h3
-          className="uppercase text-7xl font-semibold"
+          className="uppercase text-6xl font-semibold"
           style={{
             WebkitTextStroke: "1px #B473F3",
             WebkitTextFillColor: "transparent",
