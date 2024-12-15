@@ -1,42 +1,43 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Featured = () => {
   const projects = [
     {
       name: "Portfolio Website",
       tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      link: "https://example.com/portfolio",
+      link: "/projects/portfolio",
       image: "/p1.png",
     },
     {
       name: "E-Commerce Store",
       tags: ["React", "Redux", "Node.js", "MongoDB"],
-      link: "https://example.com/ecommerce",
+      link: "/projects/ecommerce",
       image: "/p2.jpg",
     },
     {
       name: "Blog Platform",
       tags: ["Next.js", "GraphQL", "Apollo Client", "Prisma"],
-      link: "https://example.com/blog-platform",
+      link: "/projects/blog-platform",
       image: "/p3.jpg",
     },
     {
       name: "Task Manager",
       tags: ["Vue.js", "Vuex", "Firebase", "Material Design"],
-      link: "https://example.com/task-manager",
+      link: "/projects/task-manager",
       image: "/p4.png",
     },
   ];
 
   return (
     <div className="">
-      <div className="grid grid-cols-2 gap-6 px-16 py-16">
+      <div className="grid grid-cols-2 gap-6 py-16">
         {projects.map((project, index) => (
           <div
             key={index}
             className="col-span-2 md:col-span-1 overflow-hidden  mt-6"
           >
-            <a
+            <Link
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -69,7 +70,7 @@ const Featured = () => {
                   </span>
                 ))}
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>

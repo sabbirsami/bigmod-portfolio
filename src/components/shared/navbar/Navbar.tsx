@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "../icons/Logo";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,8 @@ const Navbar = () => {
     { title: "Blogs", route: "/blogs" },
     { title: "Contact us", route: "/contact-us" },
   ];
+
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-10 bg-black">
@@ -66,15 +69,20 @@ const Navbar = () => {
                 <Link
                   key={idx}
                   href={item.route}
-                  className="capitalize px-4 py-2 lg:py-0 hover:text-primary_two text-sm"
+                  className={`capitalize px-4 py-2 lg:py-0 hover:text-primary_two text-sm ${
+                    pathname === item.route ? "text-primary_two" : ""
+                  }`}
                 >
                   {item.title}
                 </Link>
               ))}
             </nav>
-            <button className="mt-4 lg:mt-0 lg:ml-4 rounded-full py-2.5 px-6 bg-gradient-to-tr from-secondary_one to-secondary_two text-white text-sm">
+            <Link
+              href={"/book-appointment"}
+              className="mt-4 lg:mt-0 lg:ml-4 rounded-full py-2.5 px-6 bg-gradient-to-tr from-secondary_one to-secondary_two text-white text-sm"
+            >
               Book Appointment
-            </button>
+            </Link>
           </div>
         </div>
       </div>
