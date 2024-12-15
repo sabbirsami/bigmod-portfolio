@@ -53,7 +53,7 @@ export function WorkProcessSlider() {
   return (
     <div className="relative overflow-hidden px-4 py-12 md:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-end justify-between">
+        <div className="md:flex items-end justify-between">
           <div className="mb-8">
             <span className="text-sm font-semibold uppercase tracking-wider text-red-500">
               HOW WE WORK
@@ -91,7 +91,7 @@ export function WorkProcessSlider() {
 
         <div className="relative">
           <div
-            className="transition-transform duration-500 ease-in-out"
+            className={`transition-transform duration-500 ease-in-out `}
             style={{
               transform: `translateX(-${currentSlide * 100}%)`,
               display: "flex",
